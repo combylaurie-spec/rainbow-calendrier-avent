@@ -1,0 +1,19 @@
+# Pas de section [build] : Netlify publie la racine du dépôt et détecte
+# netlify/functions tout seul. En déploiement depuis Git, il installe aussi
+# les dépendances de package.json — c'est ce qui fait vivre la fonction.
+
+# L'adresse propre de la fonction.
+[[redirects]]
+  from = "/api/claim"
+  to = "/.netlify/functions/claim"
+  status = 200
+
+# Ceinture et bretelles : le dossier des fonctions ne doit JAMAIS être servi en
+# statique. Il contient codes.mjs, c'est-à-dire les 24 codes des stickers — les
+# exposer reviendrait à offrir tous les lots à qui connaît l'adresse.
+# (À ne pas confondre avec /.netlify/… , avec un point, qui reste nécessaire.)
+[[redirects]]
+  from = "/netlify/*"
+  to = "/index.html"
+  status = 404
+  force = true

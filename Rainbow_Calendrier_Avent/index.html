@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les 12 Jours Rainbow</title>
+<meta name="description" content="24 stickers arc-en-ciel cachés dans Nîmes et Avignon, du 13 au 24 décembre. Trouve-en un, scanne-le, repars avec un lot.">
+<meta name="theme-color" content="#C2585E">
+<meta property="og:title" content="Les 12 Jours Rainbow">
+<meta property="og:description" content="Des stickers arc-en-ciel cachés en ville. Le premier qui scanne gagne.">
+<link rel="icon" href="logo-rainbow.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,0..100,0..1&family=Caveat:wght@400..700&family=Poppins:wght@400;500;600;700;800&display=swap">
+<style>
+:root{
+  --brick:#C2585E; --lav:#B9A7DC; --rose:#DBA3A2; --blue:#B0CDE8;
+  --sage:#A7C989; --yellow:#F5CE5D; --orange:#F0813C;
+  --cream:#FAF4E7; --cream2:#F3EAD6; --dark:#8A5551; --muted:#9A7A75;
+  --pale:#DFA0A0;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
+html{background:var(--cream)}
+body{background:var(--cream);color:var(--dark);
+  font-family:'Poppins',"Avenir Next",Helvetica,sans-serif;line-height:1.55;
+  min-height:100dvh;padding:0 0 46px}
+.wrap{max-width:880px;margin:0 auto;padding:0 18px}
+.tt{font-family:'Fraunces',Georgia,serif;font-weight:900;line-height:.94;
+  letter-spacing:-.02em;font-variation-settings:'SOFT' 40,'WONK' 1;text-wrap:balance}
+.hw{font-family:'Caveat',"Bradley Hand",cursive;font-weight:600;line-height:1.05}
+.lbl{font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.66rem}
+
+/* --- entête --- */
+.chapeau{background:var(--brick);color:var(--cream);padding:30px 18px 34px;text-align:center;
+  margin-bottom:28px}
+.brand{width:76px;height:auto;display:block;margin:0 auto 12px}
+.chapeau h1{font-size:clamp(2rem,9vw,2.8rem)}
+.chapeau .hw{font-size:1.45rem;opacity:.94;margin-top:6px}
+.chapeau .accroche{font-size:.95rem;margin-top:14px;max-width:34ch;margin-inline:auto;opacity:.95}
+
+h2.sec{font-family:'Fraunces',Georgia,serif;font-weight:900;font-size:1.35rem;color:var(--brick);
+  font-variation-settings:'SOFT' 40,'WONK' 1;line-height:1.1;margin-bottom:4px}
+h2.sec .num{font-family:'Poppins';font-weight:700;font-size:.62rem;letter-spacing:.2em;
+  display:block;color:var(--muted);margin-bottom:7px}
+section{margin-bottom:34px}
+.intro{font-size:.92rem;margin-bottom:16px}
+
+/* --- une seule largeur de conteneur, tout aligné dessus --- */
+.tete{max-width:56ch;margin-bottom:18px}
+
+/* les lots : une vedette pleine largeur, puis quatre cartes égales */
+.lots{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:700px){.lots{grid-template-columns:repeat(4,1fr)}}
+.lot{background:var(--cream2);border:1px solid rgba(194,88,94,.24);border-radius:14px;
+  padding:14px 15px}
+.lot.vedette{grid-column:1 / -1;background:var(--brick);color:var(--cream);
+  border-color:var(--brick);display:flex;flex-direction:column;justify-content:center;
+  padding:18px 20px}
+.lot p:first-child{font-family:'Fraunces',Georgia,serif;font-weight:900;font-size:1rem;
+  color:var(--brick);font-variation-settings:'SOFT' 40,'WONK' 1;line-height:1.15}
+.lot.vedette p:first-child{color:var(--cream);font-size:1.3rem}
+.lot p:last-child{font-size:.79rem;margin-top:5px;opacity:.85;line-height:1.4}
+.lot.vedette p:last-child{font-size:.88rem;max-width:52ch}
+
+/* les deux façons de jouer : deux colonnes de même largeur, alignées sur la grille */
+.paires{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:700px){.paires{grid-template-columns:1fr 1fr}}
+.voie{background:var(--cream2);border:1px solid rgba(194,88,94,.24);border-radius:16px;
+  padding:20px 20px 18px}
+.voie .ou{font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.63rem;
+  color:var(--muted)}
+.voie h3{font-family:'Fraunces',Georgia,serif;font-weight:900;font-size:1.22rem;
+  color:var(--brick);font-variation-settings:'SOFT' 40,'WONK' 1;line-height:1.1;
+  margin:4px 0 12px}
+.voie ol{margin:0;padding-left:0;list-style:none;counter-reset:v;
+  display:flex;flex-direction:column;gap:10px}
+.voie li{counter-increment:v;position:relative;padding-left:30px;font-size:.88rem;
+  line-height:1.45}
+.voie li::before{content:counter(v);position:absolute;left:0;top:1px;width:21px;height:21px;
+  border-radius:99px;background:var(--brick);color:var(--cream);display:flex;
+  align-items:center;justify-content:center;font-family:'Fraunces',Georgia,serif;
+  font-weight:900;font-size:.72rem;font-variation-settings:'SOFT' 40,'WONK' 1}
+.voie b{color:var(--brick)}
+.fin-voie{margin-top:14px;font-size:.86rem;text-align:center;color:var(--muted);
+  max-width:60ch;margin-inline:auto}
+.fin-voie b{color:var(--brick)}
+
+/* --- grille --- */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(min-width:430px){.grid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:700px){.grid{grid-template-columns:repeat(6,1fr);gap:12px}}
+.case{position:relative;aspect-ratio:.84;border:0;cursor:default;font:inherit;
+  border-radius:999px 999px 7px 7px;background:var(--pale);color:var(--cream);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  font-family:'Fraunces',Georgia,serif;font-weight:900;font-size:1.45rem;
+  font-variation-settings:'SOFT' 40,'WONK' 1;transition:transform .15s,box-shadow .15s}
+.case small{font-family:'Poppins';font-weight:700;font-size:.46rem;letter-spacing:.13em;
+  text-transform:uppercase;opacity:.85}
+.case.open{cursor:pointer;background:var(--cream2);color:var(--brick);
+  border:2px solid var(--brick);box-shadow:0 3px 0 rgba(194,88,94,.26)}
+.case.open:hover{transform:translateY(-2px);box-shadow:0 6px 0 rgba(194,88,94,.26)}
+.case.open:focus-visible{outline:3px solid var(--dark);outline-offset:3px}
+.case.gros::after{content:"★";position:absolute;top:8px;font-size:.6rem;opacity:.85}
+.case.today{background:var(--brick);color:var(--cream);border:2px solid var(--brick);
+  box-shadow:0 0 0 3px var(--cream),0 0 0 5px var(--brick),0 4px 0 rgba(138,85,81,.3)}
+.legend{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;
+  margin-top:16px;font-size:.71rem;color:var(--muted)}
+.legend b{color:var(--brick)}
+
+/* --- panneau jour / verdict --- */
+.jour{background:var(--cream2);border:1px solid rgba(194,88,94,.28);border-radius:20px;
+  padding:26px 22px 24px;text-align:center}
+.jour .n{font-family:'Fraunces',Georgia,serif;font-weight:900;font-size:3.1rem;
+  color:var(--brick);font-variation-settings:'SOFT' 40,'WONK' 1;line-height:1}
+.jour .n span{font-size:.95rem;display:block;font-family:'Poppins';font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.tag{display:inline-block;border-radius:99px;padding:4px 13px;font-size:.63rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;margin-top:12px;
+  background:var(--brick);color:var(--cream)}
+.jour h2{font-family:'Fraunces',Georgia,serif;font-weight:900;font-size:1.5rem;
+  color:var(--brick);font-variation-settings:'SOFT' 40,'WONK' 1;line-height:1.1;margin-top:14px}
+.jour p.txt{margin-top:10px;font-size:.93rem}
+.jour p.ou{margin-top:12px;font-size:.77rem;color:var(--muted);font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase}
+.verdict{margin-top:20px;border-radius:16px;padding:18px 16px;background:var(--cream);
+  border:1px solid rgba(194,88,94,.3)}
+.verdict.win{border-color:var(--brick);border-width:2px}
+.verdict .big{font-family:'Fraunces',Georgia,serif;font-weight:900;font-size:1.45rem;
+  color:var(--brick);font-variation-settings:'SOFT' 40,'WONK' 1;line-height:1.05}
+.verdict p{font-size:.89rem;margin-top:9px}
+.verdict .fine{font-size:.77rem;opacity:.75;margin-top:9px}
+.code{display:inline-block;font-weight:700;letter-spacing:.2em;font-size:1rem;
+  color:var(--brick);border:1.5px dashed var(--brick);border-radius:11px;
+  padding:10px 13px 10px 18px;background:var(--cream2);margin-top:13px}
+.dots{display:flex;gap:6px;justify-content:center;margin-top:14px}
+.dots i{width:7px;height:7px;border-radius:99px;display:block}
+.btn{display:inline-block;font:inherit;font-weight:600;font-size:.91rem;border:0;cursor:pointer;
+  background:var(--brick);color:var(--cream);padding:12px 24px;border-radius:99px;
+  text-decoration:none;margin-top:18px}
+.btn.ghost{background:transparent;color:var(--brick);border:1.5px solid var(--brick)}
+.btn:focus-visible{outline:3px solid var(--dark);outline-offset:3px}
+footer{text-align:center;font-size:.75rem;color:var(--muted);padding-top:22px;
+  border-top:1px solid rgba(138,85,81,.18)}
+footer a{color:var(--brick);font-weight:600}
+
+/* --- arc-en-ciel qui se dévoile derrière le lot --- */
+.ciel{position:fixed;left:50%;bottom:-14vh;transform:translateX(-50%);
+  width:max(155vw,118vh);pointer-events:none;z-index:0;display:none}
+body.reveal .ciel{display:block}
+.ciel svg{display:block;width:100%;height:auto}
+.ciel path{stroke-dasharray:1;stroke-dashoffset:1;
+  animation:tracer 1.15s cubic-bezier(.25,.8,.35,1) forwards}
+.ciel path:nth-child(1){animation-delay:.05s}
+.ciel path:nth-child(2){animation-delay:.15s}
+.ciel path:nth-child(3){animation-delay:.25s}
+.ciel path:nth-child(4){animation-delay:.35s}
+.ciel path:nth-child(5){animation-delay:.45s}
+.ciel path:nth-child(6){animation-delay:.55s}
+@keyframes tracer{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){
+  .ciel path{animation:none;stroke-dashoffset:0}
+}
+.contenu{position:relative;z-index:1}
+body.reveal{background:transparent}
+body.reveal .chapeau{background:transparent;padding:22px 18px 6px}
+body.reveal .chapeau h1,body.reveal .chapeau .hw,body.reveal .chapeau .accroche{display:none}
+body.reveal .wrap{position:relative;z-index:1;max-width:392px;padding:0 30px}
+body.reveal .jour{box-shadow:0 10px 34px rgba(138,85,81,.22);background:var(--cream)}
+body.reveal footer{display:none}
+.hidden{display:none!important}
+@media (prefers-reduced-motion:no-preference){
+  .pop{animation:pop .45s cubic-bezier(.2,.9,.3,1.2) both}
+  @keyframes pop{from{transform:scale(.95);opacity:0}to{transform:none;opacity:1}}
+}
+</style>
+</head>
+<body>
+
+<div class="ciel" id="ciel" aria-hidden="true">
+<svg viewBox="0 0 400 210" preserveAspectRatio="xMidYMax meet">
+    <g fill="none" stroke-linecap="round">
+      <path pathLength="1" d="M 40,210 A 160,160 0 0 1 360,210" stroke="#C96A72" stroke-width="26"/>
+      <path pathLength="1" d="M 66,210 A 134,134 0 0 1 334,210" stroke="#F3804A" stroke-width="26"/>
+      <path pathLength="1" d="M 92,210 A 108,108 0 0 1 308,210" stroke="#FEC25D" stroke-width="26"/>
+      <path pathLength="1" d="M 118,210 A 82,82 0 0 1 282,210" stroke="#AAC47E" stroke-width="26"/>
+      <path pathLength="1" d="M 144,210 A 56,56 0 0 1 256,210" stroke="#B8D2E4" stroke-width="26"/>
+      <path pathLength="1" d="M 170,210 A 30,30 0 0 1 230,210" stroke="#C6BEED" stroke-width="26"/>
+    </g>
+  </svg>
+</div>
+
+<div class="chapeau">
+  <img class="brand" src="logo-rainbow.png" alt="Rainbow Café">
+  <h1 class="tt">Les 12 Jours<br>Rainbow</h1>
+  <p class="hw">du 13 au 24 décembre</p>
+  <p class="accroche">On a caché <b>24 stickers arc-en-ciel</b> dans Nîmes et Avignon.
+     Chacun vaut un lot. Le premier qui le scanne l'emporte.</p>
+</div>
+
+<div class="wrap">
+
+<!-- ================= ACCUEIL ================= -->
+<div id="v-accueil">
+
+  <!-- 1. le calendrier, d'abord -->
+  <section>
+    <div class="tete">
+      <h2 class="sec"><span class="num">Le calendrier</span>Un lot par jour</h2>
+      <p class="intro">Une case s'ouvre chaque matin. ★ marque les gros lots.
+         Un sticker scanné avant sa date te dira gentiment de revenir.</p>
+    </div>
+    <div class="grid" id="grille"></div>
+    <p class="legend">
+      <span><b>Rose pâle</b> — pas encore ouvert</span>
+      <span><b>Crème</b> — le sticker est en ville</span>
+      <span><b>Brick</b> — c'est aujourd'hui</span>
+    </p>
+  </section>
+
+  <!-- 2. les lots -->
+  <section>
+    <div class="tete">
+      <h2 class="sec"><span class="num">Ce qui se gagne</span>Il y a de quoi chercher</h2>
+    </div>
+    <div class="lots">
+      <div class="lot vedette">
+        <p>La pièce de ton choix</p>
+        <p>N'importe laquelle de l'étagère, du photophore au grand vase.
+           Peinture et cuisson comprises.</p>
+      </div>
+      <div class="lot"><p>Bons cadeau</p><p>30 € et 50 €</p></div>
+      <div class="lot"><p>Jusqu'à −40 %</p><p>sur ta pièce ou ta séance de janvier</p></div>
+      <div class="lot"><p>Une boisson</p><p>celle que tu veux, offerte</p></div>
+      <div class="lot"><p>Un cookie</p><p>sorti du four le matin même</p></div>
+    </div>
+  </section>
+
+  <!-- 3. comment on joue : dehors / dedans -->
+  <section>
+    <div class="tete">
+      <h2 class="sec"><span class="num">Comment ça marche</span>Dehors et dedans</h2>
+    </div>
+    <div class="paires">
+      <div class="voie">
+        <p class="ou">Dehors, en ville</p>
+        <h3>Les stickers</h3>
+        <ol>
+          <li>Tu repères un <b>sticker arc-en-ciel</b> collé en ville. Le numéro dessus
+              indique son jour.</li>
+          <li>Tu <b>scannes le QR</b> : la page t'annonce ton lot et te donne un code.</li>
+          <li>Deux par jour, un à Nîmes, un à Avignon — et <b>un seul gagnant</b> par
+              sticker. L'indice est en story.</li>
+        </ol>
+      </div>
+      <div class="voie">
+        <p class="ou">Dedans, dans les cafés</p>
+        <h3>Les pastilles</h3>
+        <ol>
+          <li>Tu choisis ta pièce sur l'étagère, comme d'habitude.</li>
+          <li>Tu la <b>retournes</b> : certaines cachent une pastille arc-en-ciel
+              sous leur base.</li>
+          <li>Rien à scanner. Tu la décolles, et <b>c'est gagné</b>.</li>
+        </ol>
+      </div>
+    </div>
+    <p class="fin-voie">Dans les deux cas, tu présentes ton code ou ta pastille
+       <b>au comptoir</b>, à Nîmes ou à Avignon. Les bons sont valables un mois.</p>
+  </section>
+
+</div>
+
+<!-- ================= UN JOUR / UN SCAN ================= -->
+<div id="v-jour" class="hidden">
+  <div class="jour pop">
+    <div class="contenu" id="carte-jour"></div>
+  </div>
+  <p style="text-align:center"><button class="btn ghost" id="retour" type="button">← Retour</button></p>
+</div>
+
+<footer>
+  <p><b>Rainbow Café</b> — café céramique</p>
+  <p>Nîmes, 2 Plan de l'Aspic · Avignon, rue de la Bonneterie</p>
+  <p><a href="https://instagram.com/rainbow_nimes">@rainbow_nimes</a> ·
+     <a href="https://rainbow-nimes.fr">rainbow-nimes.fr</a></p>
+</footer>
+
+</div>
+
+<script type="module">
+import { ANNEE, JOURS } from "./jours.mjs";
+
+const params  = new URLSearchParams(location.search);
+const apercu  = params.get("apercu") === "1";
+const codeUrl = (params.get("c") || "").trim().toUpperCase();
+const INSTA   = "https://instagram.com/rainbow_nimes";
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function aujourdhui() {
+  return new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Paris" }));
+}
+function ouverte(n) {
+  if (apercu) return true;
+  const d = aujourdhui();
+  if (d.getFullYear() !== ANNEE) return d.getFullYear() > ANNEE;
+  if (d.getMonth() !== 11) return d.getMonth() > 11;
+  return d.getDate() >= n;
+}
+function estAujourdhui(n) {
+  const d = aujourdhui();
+  return d.getFullYear() === ANNEE && d.getMonth() === 11 && d.getDate() === n;
+}
+
+
+function montrer(vue) {
+  $("v-accueil").classList.toggle("hidden", vue !== "accueil");
+  $("v-jour").classList.toggle("hidden", vue !== "jour");
+  const ciel = $("ciel");
+  document.body.classList.toggle("reveal", vue === "jour");
+  if (vue === "jour") {
+    // on redémarre le tracé à chaque ouverture, sinon l'animation ne rejoue pas
+    ciel.querySelectorAll("path").forEach((p) => {
+      p.style.animation = "none";
+      void p.getBoundingClientRect();
+      p.style.animation = "";
+    });
+  }
+  window.scrollTo({ top: 0, behavior: "instant" });
+}
+
+function dessinerGrille() {
+  $("grille").innerHTML = JOURS.map((j) => {
+    const ok = ouverte(j.n);
+    const cls = ["case", ok ? "open" : "", estAujourdhui(j.n) ? "today" : "",
+                 j.gros ? "gros" : ""].join(" ");
+    return `<button class="${cls}" ${ok ? "" : "disabled"} data-n="${j.n}"
+              aria-label="Jour ${j.n}${ok ? "" : ", pas encore ouvert"}">
+              ${j.n}${estAujourdhui(j.n) ? "<small>aujourd'hui</small>" : ""}
+            </button>`;
+  }).join("");
+  $("grille").querySelectorAll(".case.open").forEach((b) =>
+    b.addEventListener("click", () => afficherJour(Number(b.dataset.n))));
+}
+
+const pastilles = `<div class="dots" aria-hidden="true">
+  <i style="background:var(--brick)"></i><i style="background:var(--orange)"></i>
+  <i style="background:var(--yellow)"></i><i style="background:var(--sage)"></i>
+  <i style="background:var(--blue)"></i><i style="background:var(--lav)"></i></div>`;
+
+function afficherJour(n) {
+  const j = JOURS.find((x) => x.n === n);
+  if (!j) return;
+  $("carte-jour").innerHTML = `
+    <p class="n">${j.n}<span>décembre</span></p>
+    <span class="tag">${j.gros ? "Gros lot du jour" : "Le lot du jour"}</span>
+    <h2>${esc(j.lot)}</h2>
+    <p class="txt">${esc(j.texte)}</p>
+    <p class="ou">Deux stickers en ville · Nîmes &amp; Avignon</p>
+    <div class="verdict">
+      <p>Ce lot se gagne en trouvant <b>le sticker du jour</b>. Un par ville, et le
+         premier qui scanne l'emporte.</p>
+      <p class="fine">L'indice du jour est publié en story.</p>
+    </div>
+    <a class="btn" href="${INSTA}">Voir l'indice du jour</a>`;
+  montrer("jour");
+}
+
+function afficherBon(d, etat) {
+  const bloc = etat === "gagne"
+    ? `<div class="verdict win">
+        <p class="big">C'est toi qui l'emportes&nbsp;!</p>
+        <p>Voici ton code. <b>Montre-le au comptoir</b>, à Nîmes ou à Avignon —
+           une capture d'écran suffit.</p>
+        <span class="code">${esc(d.numero)}</span>
+        <p class="fine">À utiliser avant le <b>${esc(d.expire || "")}</b></p>
+        ${pastilles}</div>
+        <a class="btn" href="${INSTA}">Nous écrire sur Instagram</a>`
+    : `<div class="verdict">
+        <p class="big">Quelqu'un t'a devancé</p>
+        <p>Ce sticker a déjà été scanné. Mais il y en a un nouveau chaque matin dans
+           chaque ville — et sous les pièces de l'étagère, il y a des pastilles à
+           trouver toute la journée.</p></div>
+        <a class="btn" href="${INSTA}">Voir l'indice du jour</a>`;
+  const j = JOURS.find((x) => x.n === d.jour);
+  $("carte-jour").innerHTML = `
+    <p class="n">${d.jour}<span>décembre</span></p>
+    <span class="tag">Sticker ${esc(d.ville || "")}</span>
+    <h2>${esc(d.lot || (j && j.lot) || "")}</h2>
+    <p class="txt">${esc(d.texte || (j && j.texte) || "")}</p>
+    ${bloc}`;
+  montrer("jour");
+}
+
+function messageSimple(titre, texte) {
+  $("carte-jour").innerHTML = `<h2 style="margin-top:0">${esc(titre)}</h2>
+    <p class="txt">${esc(texte)}</p>
+    <a class="btn" href="${INSTA}">Suivre le jeu</a>`;
+  montrer("jour");
+}
+
+async function parScan(code) {
+  // La page ne connaît aucun code : c'est la fonction qui tranche, et elle seule.
+  // Les codes vivent dans netlify/functions/codes.mjs, jamais servi en statique.
+  montrer("jour");
+  $("carte-jour").innerHTML = `<h2 style="margin-top:0">On vérifie…</h2>${pastilles}`;
+  try {
+    const r = await fetch("/api/claim?c=" + encodeURIComponent(code), { cache: "no-store" });
+    const type = r.headers.get("content-type") || "";
+    if (!r.ok || type.indexOf("json") === -1) throw new Error("fonction indisponible");
+    const d = await r.json();
+    if (d.statut === "gagne") { afficherBon(d, "gagne"); }
+    else if (d.statut === "epuise") { afficherBon(d, "epuise"); }
+    else if (d.statut === "trop_tot") { messageSimple("Trop tôt !",
+        `Ce sticker s'active le ${d.jour} décembre. Note bien où tu l'as vu, et reviens ce jour-là.`); }
+    else { messageSimple("Code non reconnu",
+        "Ce code ne fait pas partie du jeu. Vérifie que tu as bien scanné un sticker Rainbow."); }
+  } catch (e) {
+    // Sans la fonction, impossible de savoir si le sticker est encore libre.
+    // On ne dévoile donc aucun lot : on renvoie au comptoir, qui tranchera.
+    messageSimple("Vérification impossible",
+      `On n'arrive pas à joindre nos serveurs. Montre ce code au comptoir, on regardera à la main : ${code}`);
+  }
+}
+
+$("retour").addEventListener("click", () => { dessinerGrille(); montrer("accueil"); });
+
+dessinerGrille();
+if (codeUrl) parScan(codeUrl);
+else montrer("accueil");
+</script>
+</body>
+</html>
